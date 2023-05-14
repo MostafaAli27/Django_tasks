@@ -1,7 +1,52 @@
-<div class="main">
-    {% for data in dataset %}.
-    {{ data.f_name }}<br/>
-    {{ data.l_name }}<br/>
-    <hr/>
-    {% endfor %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static '/styles2.css' %}" />
+</head>
+
+<body>
+    <nav id="topnav">
+        <a id="logo" class="nav-link" href="{%url 'Hello'%}">Mostafa Ali</a>
+        <a class="nav-link" href="{%url 'list'%}">show students</a>
+        <a class="nav-link" href="{%url 'add_student'%}">add students</a>
+        <a class="nav-link" href="#">delete student</a>
+        <a class="nav-link" href="#">update student</a>
+        <a class="nav-link" href="#">show courses</a>
+
+        <a id="about" class="nav-link" href="{%url 'cv'%}">About Me</a>
+    </nav>
+
+<br><br><br>
+    <h2>Responsive Table</h2>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th> Last Name</th>
+                    <th>Mobile</th>
+                    <th> birth_date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in dataset %}.
+
+                <tr>
+                    <td> {{ data.f_name }}</td>
+                    <td>{{ data.l_name }}</td>
+                    <td>{{data.mobile}}</td>
+                    <td>birth_date</td>
+                </tr>
+                {% endfor %}
+
+            <tbody>
+        </table>
     </div>
+
+
+</body>
+
+</html>

@@ -15,3 +15,11 @@ def list_view(request):
     context = {}
     context["dataset"] = Student.objects.all()
     return render(request,"list_view.html",context)
+
+def cv(request):
+    content = loader.get_template('cv.html')
+    return HttpResponse(content.render())
+
+def add_student(request):
+    form = Student_form
+    return render(request,'add_student.html',{'form':form})

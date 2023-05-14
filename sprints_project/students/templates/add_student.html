@@ -1,1 +1,44 @@
-<h1>ADD Student page</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static '/styles.css' %}" />
+</head>
+
+<body>
+    <nav id="topnav">
+        <a id="logo" class="nav-link" href="{%url 'Hello'%}">Mostafa Ali</a>
+        <a class="nav-link" href="{%url 'list'%}">show students</a>
+        <a class="nav-link" href="{%url 'add_student'%}">add students</a>
+        <a class="nav-link" href="#">delete student</a>
+        <a class="nav-link" href="#">update student</a>
+        <a class="nav-link" href="#">show courses</a>
+
+        <a id="about" class="nav-link" href="{%url 'cv'%}">About Me</a>
+    </nav>
+
+
+<br>
+<br><br>
+    
+
+<div class="form">
+    <div class="title">Welcome</div>
+    <div class="subtitle">Let's create your account!</div>
+    <div class="input-container ic1">
+
+    <form action="" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" class="submit" value="submit">
+
+    </form>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
