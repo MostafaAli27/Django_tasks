@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import redirect, render
 
 from students.models import Student
 
@@ -21,5 +22,15 @@ def cv(request):
     return HttpResponse(content.render())
 
 def add_student(request):
-    form = Student_form
-    return render(request,'add_student.html',{'form':form})
+  if request.method == "POST":
+    form = Student_form(request.POST)
+    
+    if form.is_valid():
+       form.save()
+       return redirect('/list')  
+    
+  else:
+      form = Student_form()
+      
+  
+  return render(request, 'add_student.html', {'form': form})
